@@ -16,15 +16,17 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Savings</h1>
           </header>
-          <Link to="/">Home</Link><br/>
-          <Link to="/test1">Test 1</Link> <br/>
-          <Link to="/test2">Test 2</Link><br/>
-          <Link to="/accounts">Account</Link>
           
           <Route path="/" component={Home} exact />
           <Route path="/test1" component={TestView1} />
           <Route path="/test2" component={TestView2} />
           <Route path="/accounts/:account" component={Account} />
+
+          <Link to="/">Home</Link> | 
+          <Link to="/test1">Test 1</Link> | 
+          <Link to="/test2">Test 2</Link> |
+          <Link to="/accounts">Account</Link>
+          
         </div>
       </BrowserRouter>
     );

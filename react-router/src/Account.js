@@ -10,6 +10,7 @@ class Account extends Component {
    };
   }
 
+
  clientAssertion(){
     let jsonResponse = '';
     var body = { 
@@ -54,10 +55,11 @@ class Account extends Component {
   componentDidMount() {
     const { account } = this.props.match.params;
     
-    let clientAssertionResponse = this.clientAssertion();
-    console.log("clientAssertionResponse = " + clientAssertionResponse);
-   //this.setState({ clientAssertionResponse: clientAssertionResponse});
-    let tokenClientCredentialsResponse = this.tokenClientCredentials(clientAssertionResponse);
+    var clientAssertionResponse = this.clientAssertion();
+
+    var tokenClientCredentialsResponse = this.tokenClientCredentials(clientAssertionResponse);
+
+    console.log("tokenClientCredentialsResponse = " + tokenClientCredentialsResponse);
     //this.setState({ tokenClientCredentialsResponse: tokenClientCredentialsResponse });
     
   }

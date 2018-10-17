@@ -9,71 +9,52 @@ class Account extends Component {
       tokenClientCredentialsResponse: ''
    };
   }
+  
+  
+componentDidMount(){
+    try{
 
+      var body = { 
+        "iss": "2s5j8qga43p9oa91abgh2vv19o", 
+        "sub": "lab126", 
+        "jti": "id123456",  
+        "aud": "https://api.hsbc.qa.xlabs.one/as/token.oauth2"
+      };
 
- clientAssertion(){
-    let jsonResponse = '';
-    var body = { 
-      "iss": "2s5j8qga43p9oa91abgh2vv19o", 
-      "sub": "lab126", 
-      "jti": "id123456",  
-      "aud": "https://api.hsbc.qa.xlabs.one/as/token.oauth2"
-    };
-
-    fetch(`https://api.hsbc.qa.xlabs.one/oauth2/client-assertion`, {
-      method: 'POST',
-      body:    JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json' },
-    })
-    .then(res => res.json()) 
-    .then(json => {
-      console.log(json);
-      this.setState({ clientAssertionResponse: json});
-    });
-    return jsonResponse;
-  }
-
- tokenClientCredentials(clientAssertion){
-    let jsonResponse = '';
-    console.log("------------> clientAssertion = " + clientAssertion);
-    var body = "grant_type=client_credentials&scope=accounts&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=${clientAssertion}";
-    
-    fetch(`https://api.hsbc.qa.xlabs.one/oauth2/as/token-client-credentials`, {
-      method: 'POST',
-      body:    body,
-      headers: { 'Content-Type': 'application/json' },
-    })
-    .then(res => res.json()) 
-    .then(json => {
-      console.log(json);
-      this.setState({ tokenClientCredentialsResponse: json });
       
-    });
-    return jsonResponse;
-  }
+      fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/client-assertion`, {
+        method: 'POST',
+        body:    JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json' },
+      })
+    .then(response => response.json()) 
+      .then(response => {
 
-  componentDidMount() {
-    const { account } = this.props.match.params;
+        console.log(response);
+        this.setState({ clientAssertionResponse: response });
+        
+        const body1 = 'grant_type=client_credentials&scope=accounts&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=' + response;
+
+
+        console.log(body1);
+        fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/as/token-client-credentials`, {
+          method: 'POST',
+          body: body1,
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' }
+          }).then(response1 => response1.json())
+          .then(response1 => {
+            console.log(response1.access_token);
+            this.setState( {tokenClientCredentialsResponse: response1.access_token });
+          });
+      //.then(response1 => this.setState( {tokenClientCredentialsResponse: response1.data }));
+      });
     
-    var clientAssertionResponse = this.clientAssertion();
 
-    var tokenClientCredentialsResponse = this.tokenClientCredentials(clientAssertionResponse);
-
-    console.log("tokenClientCredentialsResponse = " + tokenClientCredentialsResponse);
-    //this.setState({ tokenClientCredentialsResponse: tokenClientCredentialsResponse });
-    
-  }
-
-  componentDidUpdate(prevProps) {
-    // const { breed } = this.props.match.params;
-    // if (breed !== prevProps.match.params.breed) {
-    //   fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
-    //   .then(response => response.json())
-    //   .then(json => {
-    //     this.setState({ dogImage: json.message });
-    //   });
-    // }
-  }
+    }
+    catch(err){
+        console.log(err)
+    }
+}
 
   render() {
     console.log(this.props);

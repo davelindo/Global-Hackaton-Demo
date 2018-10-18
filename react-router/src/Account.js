@@ -9,11 +9,9 @@ class Account extends Component {
       tokenClientCredentialsResponse: ''
    };
   }
-  
-  
-async componentDidMount(){
-    try{
 
+  async clientAssertion(){
+    try{
       var body = { 
         "iss": "2s5j8qga43p9oa91abgh2vv19o", 
         "sub": "lab126", 
@@ -21,7 +19,6 @@ async componentDidMount(){
         "aud": "https://api.hsbc.qa.xlabs.one/as/token.oauth2"
       };
 
-      
       const response = await fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/client-assertion`, {
         method: 'POST',
         body:    JSON.stringify(body),
@@ -31,9 +28,21 @@ async componentDidMount(){
       const json =  await response.json()
 
       console.log(response);
+      
       this.setState({ clientAssertionResponse: json });
-        
-      const body1 = `grant_type=client_credentials&scope=accounts&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=${json}`;
+      
+      return json;
+    } catch (err){
+      console.log(err)
+    }
+  }
+  
+  async tokenClientCredentials(clientAssertion){
+    
+    console.log(`------------> clientAssertion = ${clientAssertion}`);
+    
+    try {
+      const body1 = `grant_type=client_credentials&scope=accounts&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=${clientAssertion}`;
 
       console.log(body1);
 
@@ -44,13 +53,25 @@ async componentDidMount(){
         })
       
       const json2 = await response1.json()
-      
       console.log(json2.access_token);
+    
       this.setState( {tokenClientCredentialsResponse: json2.access_token })
+    
+      return json2.access_token
+    } catch (err){
+      console.log(err)
     }
-    catch(err){
-        console.log(err)
+  }
+  
+  async componentDidMount(){
+    try {
+      const clientAssertion = await this.clientAssertion();
+      const accessToken = await this.tokenClientCredentials(clientAssertion);
+      console.log(`tokenClientCredentialsResponse = ${accessToken}`);
     }
+      catch(err){
+          console.log(err)
+      }
 }
 
   render() {

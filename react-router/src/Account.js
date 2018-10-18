@@ -8,7 +8,8 @@ class Account extends Component {
       clientAssertionResponse: '',
       tokenClientCredentialsResponse: '',
       AccountRequestId: '',
-      accountsRespone: ''
+      accountsRespone: '',
+      generateurl: ''
    };
   }
 
@@ -126,13 +127,54 @@ class Account extends Component {
     }
   }
 
+  async generateUrl(intentId){
+    
+    console.log(`------------> intentId = ${intentId}`);
+    
+    try {
+      
+      let body = {
+          "client_id": "2s5j8qga43p9oa91abgh2vv19o",
+          "sub": "lab126", 
+          "scope": "accounts", 
+          "redirect_uri": "https://www.test.com/lab126", 
+          "intent_id": `${intentId}` 
+      }
+
+      let headers = {
+        'Content-Type' : 'application/json',
+        'Accept' : 'application/json'
+      }
+
+      console.log(body);
+
+      let response = await fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/authorize-url-generate`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: headers,
+        })
+      
+      let json = await response.json()
+      console.log(json);
+    
+      // URL returned contain spaces, must use function to replace space with %20
+      json = json.replace(/\s/g, "%20");
+      this.setState( {generateurl: json })
+    
+      return json
+    } catch (err){
+      console.log(err)
+    }
+  }  
+
   
   async componentDidMount(){
     try {
       const clientAssertion = await this.clientAssertion();
       const accessToken = await this.tokenClientCredentials(clientAssertion);
       const intentId = await this.retrieveAccountRequest(accessToken);
-      console.log(`tokenClientCredentialsResponse = ${intentId}`);
+      const generateurl = await this.generateUrl(intentId);
+
     }
       catch(err){
           console.log(err)
@@ -152,7 +194,7 @@ class Account extends Component {
         <h2>Step 3: POST /open-banking/v1.1/account-requests</h2>
         {this.state.AccountRequestId}
         <h2>Step4: POST /authorize-url-generate</h2>
-        {this.state.authorize-url-generate}
+        <a href={this.state.generateurl} target="_blank">Authorize Request</a>
       </div>
     );
   }

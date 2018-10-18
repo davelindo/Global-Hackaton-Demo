@@ -11,7 +11,7 @@ class Account extends Component {
   }
   
   
-componentDidMount(){
+async componentDidMount(){
     try{
 
       var body = { 
@@ -22,34 +22,31 @@ componentDidMount(){
       };
 
       
-      fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/client-assertion`, {
+      const response = await fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/client-assertion`, {
         method: 'POST',
         body:    JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' },
       })
-    .then(response => response.json()) 
-      .then(response => {
 
-        console.log(response);
-        this.setState({ clientAssertionResponse: response });
+      const json =  await response.json()
+
+      console.log(response);
+      this.setState({ clientAssertionResponse: json });
         
-        const body1 = 'grant_type=client_credentials&scope=accounts&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=' + response;
+      const body1 = `grant_type=client_credentials&scope=accounts&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=${json}`;
 
+      console.log(body1);
 
-        console.log(body1);
-        fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/as/token-client-credentials`, {
-          method: 'POST',
-          body: body1,
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' }
-          }).then(response1 => response1.json())
-          .then(response1 => {
-            console.log(response1.access_token);
-            this.setState( {tokenClientCredentialsResponse: response1.access_token });
-          });
-      //.then(response1 => this.setState( {tokenClientCredentialsResponse: response1.data }));
-      });
-    
-
+      const response1 = await fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/as/token-client-credentials`, {
+        method: 'POST',
+        body: body1,
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' }
+        })
+      
+      const json2 = await response1.json()
+      
+      console.log(json2.access_token);
+      this.setState( {tokenClientCredentialsResponse: json2.access_token })
     }
     catch(err){
         console.log(err)

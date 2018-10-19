@@ -1,0 +1,471 @@
+{
+  "Data": {
+    "StandingOrder": [
+      {
+        "AccountId": "AID690695",
+        "StandingOrderId": "145606535",
+        "Frequency": "IntrvlWkDay:03:06",
+        "Reference": "JCJO9080",
+        "FirstPaymentDateTime": "2016-10-18T12:44:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "553.23",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-01-23T12:26:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "553.23",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T14:19:16+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10054122546642",
+          "Name": "Joyce Wendy Singh",
+          "SecondaryIdentification": "EYSYP3"
+        }
+      },
+      {
+        "AccountId": "AID690695",
+        "StandingOrderId": "145606536",
+        "Frequency": "IntrvlWkDay:03:04",
+        "Reference": "OFDR1001",
+        "FirstPaymentDateTime": "2016-09-27T12:44:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "697.90",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-01-23T12:26:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "697.90",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T14:19:16+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10316722888713",
+          "Name": "Freeman-Russell Ltd.",
+          "SecondaryIdentification": "ULKPJJ"
+        }
+      },
+      {
+        "AccountId": "AID690695",
+        "StandingOrderId": "145606537",
+        "Frequency": "QtrDay:RECEIVED",
+        "Reference": "NKKR0345",
+        "FirstPaymentDateTime": "2007-03-01T10:35:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "837.27",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-04-02T14:35:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "837.27",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T14:19:16+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10271322859992",
+          "Name": "Michael Liam Harper",
+          "SecondaryIdentification": "8FDPIQ"
+        }
+      },
+      {
+        "AccountId": "AID690695",
+        "StandingOrderId": "145606538",
+        "Frequency": "QtrDay:SCOTTISH",
+        "Reference": "IIEF3921",
+        "FirstPaymentDateTime": "2012-05-03T11:35:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "663.64",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-04-02T14:35:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "663.64",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T14:19:16+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "20100045672894",
+          "Name": "Baxter-Moore",
+          "SecondaryIdentification": "06JXGP"
+        }
+      },
+      {
+        "AccountId": "AID203857",
+        "StandingOrderId": "153457255",
+        "Frequency": "QtrDay:SCOTTISH",
+        "Reference": "AHCP5649",
+        "FirstPaymentDateTime": "2008-02-24T10:35:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "532.05",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-04-02T14:35:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "532.05",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T15:06:04+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10100824953348",
+          "Name": "Rosie Lydia Johnson",
+          "SecondaryIdentification": "151HCU"
+        }
+      },
+      {
+        "AccountId": "AID203857",
+        "StandingOrderId": "153457256",
+        "Frequency": "IntrvlWkDay:07:06",
+        "Reference": "IIHZ0687",
+        "FirstPaymentDateTime": "2014-10-14T12:16:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "449.51",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-02-20T12:54:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "449.51",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T15:06:04+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10032424903277",
+          "Name": "Berry, Green and Khan",
+          "SecondaryIdentification": "CC5UMZ"
+        }
+      },
+      {
+        "AccountId": "AID203857",
+        "StandingOrderId": "153457257",
+        "Frequency": "QtrDay:ENGLISH",
+        "Reference": "HENF5223",
+        "FirstPaymentDateTime": "2006-09-02T11:35:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "631.20",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-04-02T14:35:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "631.20",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T15:06:04+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10023425313205",
+          "Name": "Frances Jennifer Murray",
+          "SecondaryIdentification": "27ZCCV"
+        }
+      },
+      {
+        "AccountId": "AID328671",
+        "StandingOrderId": "148633070",
+        "Frequency": "IntrvlMnthDay:01:03",
+        "Reference": "JBOB0636",
+        "FirstPaymentDateTime": "2014-07-22T12:35:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "474.38",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-02-01T12:35:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "474.38",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T14:36:55+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10284624019696",
+          "Name": "Amber Katy Mason",
+          "SecondaryIdentification": "EIGPWH"
+        }
+      },
+      {
+        "AccountId": "AID328671",
+        "StandingOrderId": "148633071",
+        "Frequency": "IntrvlWkDay:08:05",
+        "Reference": "DNPZ5459",
+        "FirstPaymentDateTime": "2011-09-20T12:09:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "612.82",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-02-27T13:01:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "612.82",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "2024-06-11T14:01:29+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "612.82",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "20070083647830",
+          "Name": "Johnson Inc",
+          "SecondaryIdentification": "VG0UC7"
+        }
+      },
+      {
+        "AccountId": "AID328671",
+        "StandingOrderId": "148633072",
+        "Frequency": "IntrvlWkDay:09:06",
+        "Reference": "MZUC1271",
+        "FirstPaymentDateTime": "2013-07-09T12:02:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "671.82",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-03-06T13:08:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "671.82",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T14:36:55+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10253923857042",
+          "Name": "Samuel Bradley Newman",
+          "SecondaryIdentification": "XMM4Q3"
+        }
+      },
+      {
+        "AccountId": "AID721020",
+        "StandingOrderId": "105311398",
+        "Frequency": "IntrvlMnthDay:06:11",
+        "Reference": "CJUR9444",
+        "FirstPaymentDateTime": "1990-11-25T09:05:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "528.37",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-07-01T16:05:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "528.37",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "2041-08-29T16:05:29+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "528.37",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10219111537893",
+          "Name": "Stacey Leanne Lee",
+          "SecondaryIdentification": "KJ6VEJ"
+        }
+      },
+      {
+        "AccountId": "AID721020",
+        "StandingOrderId": "105311399",
+        "Frequency": "WkInMnthDay:05:07",
+        "Reference": "CWAF6657",
+        "FirstPaymentDateTime": "2014-11-04T11:30:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "494.22",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-02-06T12:40:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "494.22",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "2022-11-22T12:40:29+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "494.22",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "20140098599907",
+          "Name": "Williams-Taylor",
+          "SecondaryIdentification": "O1SXLT"
+        }
+      },
+      {
+        "AccountId": "AID721020",
+        "StandingOrderId": "105311400",
+        "Frequency": "IntrvlWkDay:04:03",
+        "Reference": "BDHG0602",
+        "FirstPaymentDateTime": "2014-03-04T11:37:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "655.86",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-01-30T12:33:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "655.86",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T10:43:25+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10224411546674",
+          "Name": "Jayne Lindsey Smith",
+          "SecondaryIdentification": "TJ5XAQ"
+        }
+      },
+      {
+        "AccountId": "AID721020",
+        "StandingOrderId": "105311401",
+        "Frequency": "WkInMnthDay:01:04",
+        "Reference": "DYTZ3457",
+        "FirstPaymentDateTime": "2016-11-15T11:58:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "654.57",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-01-09T12:12:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "654.57",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "2018-08-07T13:12:29+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "654.57",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10255111514458",
+          "Name": "Francis Geoffrey Griffiths",
+          "SecondaryIdentification": "3B7H59"
+        }
+      },
+      {
+        "AccountId": "AID462777",
+        "StandingOrderId": "141145332",
+        "Frequency": "IntrvlWkDay:01:05",
+        "Reference": "IQVO8464",
+        "FirstPaymentDateTime": "2017-03-28T12:58:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "668.50",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-01-09T12:12:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "668.50",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "2018-04-10T13:12:29+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "668.50",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10323521757476",
+          "Name": "Jacob William Williams",
+          "SecondaryIdentification": "ARH7QB"
+        }
+      },
+      {
+        "AccountId": "AID462777",
+        "StandingOrderId": "141145333",
+        "Frequency": "QtrDay:RECEIVED",
+        "Reference": "ISSB8543",
+        "FirstPaymentDateTime": "2012-10-30T10:35:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "681.84",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-04-02T14:35:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "681.84",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T13:55:04+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10244321593613",
+          "Name": "Cameron Luke Reid",
+          "SecondaryIdentification": "N4N3EP"
+        }
+      },
+      {
+        "AccountId": "AID462777",
+        "StandingOrderId": "141145334",
+        "Frequency": "QtrDay:ENGLISH",
+        "Reference": "XDAQ8037",
+        "FirstPaymentDateTime": "2006-09-02T11:35:29+00:00",
+        "FirstPaymentAmount": {
+          "Amount": "543.42",
+          "Currency": "GBP"
+        },
+        "NextPaymentDateTime": "2018-04-02T14:35:29+00:00",
+        "NextPaymentAmount": {
+          "Amount": "543.42",
+          "Currency": "GBP"
+        },
+        "FinalPaymentDateTime": "9998-03-08T13:55:04+00:00",
+        "FinalPaymentAmount": {
+          "Amount": "0.00",
+          "Currency": "GBP"
+        },
+        "CreditorAccount": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10041021332513",
+          "Name": "James Jason Roberts",
+          "SecondaryIdentification": "2IY65K"
+        }
+      }
+    ]
+  },
+  "Links": {
+    "Self": "/standing-orders/"
+  },
+  "Meta": {
+    "TotalPages": 1
+  }
+}

@@ -9,8 +9,21 @@ class Account extends Component {
       tokenClientCredentialsResponse: '',
       AccountRequestId: '',
       accountsRespone: '',
-      generateurl: ''
+      generateurl: '',
+      authorisationCode: ''
    };
+
+  this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({authorisationCode: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.authorisationCode.value);
+    event.preventDefault();
   }
 
   async clientAssertion(){
@@ -195,6 +208,14 @@ class Account extends Component {
         {this.state.AccountRequestId}
         <h2>Step4: POST /authorize-url-generate</h2>
         <a href={this.state.generateurl} target="_blank">Authorize Request</a>
+        <h2>POST /as/token-authorization-code (Please type in the code that you obtained from the redirect):</h2>
+        <form onSubmit={this.handleSubmit}>
+        <label>
+          Authorisation code:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
       </div>
     );
   }

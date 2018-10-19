@@ -10,7 +10,7 @@ class Account extends Component {
       AccountRequestId: '',
       accountsRespone: '',
       generateurl: '',
-      authorisationCode: ''
+      authorisationCode: '',
    };
 
   this.handleChange = this.handleChange.bind(this);
@@ -19,11 +19,13 @@ class Account extends Component {
 
   handleChange(event) {
     this.setState({authorisationCode: event.target.value});
+    localStorage.setItem("authorisationCode", event.target.value);
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.authorisationCode.value);
     event.preventDefault();
+    alert('A name was submitted: ' + this.state.authorisationCode);
+    
   }
 
   async clientAssertion(){
@@ -46,6 +48,7 @@ class Account extends Component {
       console.log(response);
       
       this.setState({ clientAssertionResponse: json });
+      localStorage.setItem("clientAssertionResponse", json);
       
       return json;
     } catch (err){
@@ -72,6 +75,7 @@ class Account extends Component {
       console.log(json.access_token);
     
       this.setState( {tokenClientCredentialsResponse: json.access_token })
+      localStorage.setItem("tokenClientCredentialsResponse", json.access_token);
     
       return json.access_token
     } catch (err){
@@ -133,7 +137,8 @@ class Account extends Component {
       console.log(json.Data.AccountRequestId);
     
       this.setState( {AccountRequestId: json.Data.AccountRequestId })
-    
+      localStorage.setItem("AccountRequestId", json.Data.AccountRequestId);
+      
       return json.Data.AccountRequestId;
     } catch (err){
       console.log(err)
@@ -173,6 +178,7 @@ class Account extends Component {
       // URL returned contain spaces, must use function to replace space with %20
       json = json.replace(/\s/g, "%20");
       this.setState( {generateurl: json })
+      localStorage.setItem("generateurl", json);
     
       return json
     } catch (err){
@@ -180,18 +186,64 @@ class Account extends Component {
     }
   }  
 
+  hydrateStateWithLocalStorage = () => {
+    // for all items in state
+    var refresh = true
+    for (let key in this.state) {
+      // if the key exists in localStorage
+      if (localStorage.hasOwnProperty(key)) {
+        // get the key's value from localStorage
+        let value = localStorage.getItem(key);
+
+        // parse the localStorage string and setState
+        try {
+          // value = JSON.parse(value);
+          console.log(value)
+          this.setState({ [key]: value });
+          refresh = false
+          //only set refresh true if getting a state fails
+        } catch (e) {
+          // handle empty string
+          this.setState({ [key]: value });
+          console.log("refresh is true")
+          return true
+          
+        }
+      } else {
+        return true
+      }
+    }
+    return refresh
+  }
+
   
   async componentDidMount(){
-    try {
-      const clientAssertion = await this.clientAssertion();
-      const accessToken = await this.tokenClientCredentials(clientAssertion);
-      const intentId = await this.retrieveAccountRequest(accessToken);
-      const generateurl = await this.generateUrl(intentId);
+    const refresh = await this.hydrateStateWithLocalStorage();
+    console.log("Need to refresh:  " + refresh)
+    if (refresh) {
+      console.log('misssing state in local storage')
+      try {
+        const clientAssertion = await this.clientAssertion();
+        const accessToken = await this.tokenClientCredentials(clientAssertion);
+        const intentId = await this.retrieveAccountRequest(accessToken);
+        const generateurl = await this.generateUrl(intentId);
 
-    }
-      catch(err){
-          console.log(err)
       }
+        catch(err){
+            console.log(err)
+        }
+    }
+}
+
+componentCleanUp = () => {
+  console.log("hwehrkl;aejrlkqjklq;jewrqjer");
+  console.log('UNMOOOOUUUNNNNTTINNGGN')
+  localStorage.set('rootState', JSON.stringify(this.state));
+}
+
+componentWillUnmount () {
+  this.componentCleanup();
+  window.removeEventListener('beforeunload', this.componentCleanup);
 }
 
   render() {

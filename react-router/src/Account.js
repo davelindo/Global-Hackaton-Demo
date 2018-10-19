@@ -11,6 +11,7 @@ class Account extends Component {
       accountsRespone: '',
       generateurl: '',
       authorisationCode: '',
+      tokenAuthorisationResponse: ''
    };
 
   this.handleChange = this.handleChange.bind(this);
@@ -25,6 +26,7 @@ class Account extends Component {
   handleSubmit(event) {
     event.preventDefault();
     alert('A name was submitted: ' + this.state.authorisationCode);
+    this.tokenAuthorisationCode();
     
   }
 
@@ -105,9 +107,9 @@ class Account extends Component {
               "ReadTransactionsDebits", 
               "ReadTransactionsDetail" 
             ], 
-            "ExpirationDateTime": "2018-10-30T11:11:33+00:00",
+            "ExpirationDateTime": "2018-11-20T11:11:33+00:00",
             "TransactionFromDateTime": "2018-10-01T00:00:00+00:00", 
-            "TransactionToDateTime": "2018-01-31T00:00:00+00:00"
+            "TransactionToDateTime": "2018-10-31T00:00:00+00:00"
           }
       }
       let headers = {
@@ -185,6 +187,38 @@ class Account extends Component {
       console.log(err)
     }
   }  
+
+  async tokenAuthorisationCode() {
+    
+    try {
+      
+      let body = `grant_type=authorization_code&scope=accounts&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=${this.state.clientAssertionResponse}&client_id=2s5j8qga43p9oa91abgh2vv19o&client_secret=1gvbcerbscapnv7ueq0vpsdbrod5rjrl13b2jqof503ov33gbf2&code=${this.state.authorisationCode}&redirect_uri=https%3A%2F%2Fwww.test.com%2Flab126`
+
+      let headers = {
+        'Content-Type' : 'application/x-www-form-urlencoded',
+        'Accept' : 'application/json'
+      }
+
+      console.log(body);
+      console.log(headers);
+ 
+      let response = await fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/as/token.oauth2`, {
+        method: 'POST',
+        body: body,
+        headers: headers,
+        })
+      
+      let json = await response.json()
+      console.log(json);
+    
+      this.setState( {tokenAuthorisationResponse: json })
+      localStorage.setItem("tokenAuthorisationResponse", json);
+    
+      return json
+    } catch (err){
+      console.log(err)
+    }  
+  }
 
   hydrateStateWithLocalStorage = () => {
     // for all items in state
@@ -267,6 +301,8 @@ componentWillUnmount () {
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
+        <br />
+        {this.state.authorisationCode}
       </form>
       </div>
     );

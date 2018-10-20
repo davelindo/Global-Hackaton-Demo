@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Account extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +29,12 @@ class Account extends Component {
     alert('A name was submitted: ' + this.state.authorisationCode);
     await this.tokenAuthorisationCode();
     await this.getAccountList();
+    console.log("------------------> start printing account id");
+    console.log(this.state.accountListResponse);
+    console.log(this.state.accountListResponse.Data.Account[0].AccountId);
+    console.log("------------------> finish printing account id");
+    // This is for account 10000125273255 (AID396991)
+    await this.getAccountBalanceById(this.state.accountListResponse.Data.Account[0].AccountId);
     
   }
 
@@ -267,6 +272,40 @@ class Account extends Component {
       // URL returned contain spaces, must use function to replace space with %20
       this.setState( {accountListResponse: json })
       localStorage.setItem("accountListResponse", json);
+    
+      return json
+    } catch (err){
+      console.log(err)
+    }
+  }  
+
+  async getAccountBalanceById(accountId){
+    
+    try {
+
+      let headers = {
+        'Accept': 'application/json', 
+        'x-fapi-customer-ip-address' : '10.23.143.98', 
+        'x-fapi-customer-last-logged-time' : 'Sun, 10 Sep 2017 19:43:31 UTC',
+        'Authorization' : `bearer ${this.state.tokenAuthorisationResponse}`, 
+        'x-fapi-interaction-id' : '2c96efd2-6566-490a-81d7-24dd51340196', 
+        'x-fapi-financial-id' : 'OB/2017/001'
+      }
+
+
+      console.log(headers);
+
+      let response = await fetch(`https://api.hsbc.qa.xlabs.one/invais/open-banking/v1.1/accounts/${accountId}/balances`, {
+        method: 'GET',
+        headers: headers,
+        })
+      
+      let json = await response.json()
+      console.log(JSON.stringify(json));
+    
+      // URL returned contain spaces, must use function to replace space with %20
+      //this.setState( {accountListResponse: json })
+      //localStorage.setItem("accountListResponse", json);
     
       return json
     } catch (err){

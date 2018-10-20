@@ -262,7 +262,7 @@ class Account extends Component {
         })
       
       let json = await response.json()
-      console.log(json);
+      console.log(JSON.stringify(json));
     
       // URL returned contain spaces, must use function to replace space with %20
       this.setState( {accountListResponse: json })

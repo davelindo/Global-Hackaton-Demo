@@ -13,7 +13,8 @@ class Account extends Component {
       generateurl: '',
       authorisationCode: '',
       tokenAuthorisationResponse: '',
-      accountListResponse: ''
+      accountListResponse: '',
+      accountBalance: ''
    };
 
   this.handleChange = this.handleChange.bind(this);
@@ -30,7 +31,7 @@ class Account extends Component {
     alert('A name was submitted: ' + this.state.authorisationCode);
     await this.tokenAuthorisationCode();
     await this.getAccountList();
-    
+    await this.getAccountBalance();
   }
 
   async clientAssertion(){
@@ -274,6 +275,40 @@ class Account extends Component {
     }
   }  
 
+  async getAccountBalance(){
+    
+    try {
+
+      let headers = {
+        'Accept': 'application/json', 
+        'x-fapi-customer-ip-address' : '10.23.143.98', 
+        'x-fapi-customer-last-logged-time' : 'Sun, 10 Sep 2017 19:43:31 UTC', 
+        'x-fapi-interaction-id' : '2c96efd2-6566-490a-81d7-24dd51340196', 
+        'x-fapi-financial-id' : 'OB/2017/001', 
+        //'AccountId' : 'AID453811',
+        'Authorization' : `bearer ${this.state.tokenAuthorisationResponse}`
+      }
+
+      console.log(headers);
+
+      let response = await fetch(`https://api.hsbc.qa.xlabs.one/invais/open-banking/v1.1/accounts/AID233835/balances`, {
+        method: 'GET',
+        headers: headers,
+        })
+      
+      let json = await response.json()
+      console.log(JSON.stringify(json));
+    
+      // URL returned contain spaces, must use function to replace space with %20
+      this.setState( {accountBalance: json })
+      localStorage.setItem("accountBalance", json);
+    
+      return json
+    } catch (err){
+      console.log(err)
+    }
+  } 
+
   hydrateStateWithLocalStorage = () => {
       // for all items in state
     var refresh = true
@@ -315,7 +350,6 @@ class Account extends Component {
         const accessToken = await this.tokenClientCredentials(clientAssertion);
         const intentId = await this.retrieveAccountRequest(accessToken);
         const generateurl = await this.generateUrl(intentId);
-
       }
         catch(err){
             console.log(err)
@@ -348,6 +382,9 @@ class Account extends Component {
         <input type="submit" value="Submit" />
         <h2>Step 6: GET /open-banking/v1.1/accounts</h2>
         <h2>{this.state.accountListResponse.toString()}</h2>
+        <h2>Step 7: GET /open-banking/v1.1/accounts/{this.state.AccountRequestId}/balances</h2>
+        <h2>{this.state.accountBalance}</h2>
+        
       </form>
       </div>
     );

@@ -275,7 +275,7 @@ class Account extends Component {
   }  
 
   hydrateStateWithLocalStorage = () => {
-    // for all items in state
+      // for all items in state
     var refresh = true
     for (let key in this.state) {
       // if the key exists in localStorage
@@ -323,16 +323,7 @@ class Account extends Component {
     }
 }
 
-componentCleanUp = () => {
-  console.log("hwehrkl;aejrlkqjklq;jewrqjer");
-  console.log('UNMOOOOUUUNNNNTTINNGGN')
-  localStorage.set('rootState', JSON.stringify(this.state));
-}
 
-componentWillUnmount () {
-  this.componentCleanup();
-  window.removeEventListener('beforeunload', this.componentCleanup);
-}
 
   render() {
     console.log(this.props);
@@ -356,11 +347,12 @@ componentWillUnmount () {
         </label>
         <input type="submit" value="Submit" />
         <h2>Step 6: GET /open-banking/v1.1/accounts</h2>
-        {this.state.accountListResponse}
+        <h2>{this.state.accountListResponse.toString()}</h2>
       </form>
       </div>
     );
   }
 }
+
 
 export default Account;

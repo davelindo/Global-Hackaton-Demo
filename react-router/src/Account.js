@@ -5,39 +5,59 @@ class Account extends Component {
   constructor(props) {
     super(props);
     this.state = { 
+      sub: '',
       clientAssertionResponse: '',
       tokenClientCredentialsResponse: '',
       AccountRequestId: '',
       accountsRespone: '',
       generateurl: '',
       authorisationCode: '',
-      tokenAuthorisationResponse: ''
+      tokenAuthorisationResponse: '',
+      accountListResponse: ''
    };
 
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  async handleChange(event) {
     this.setState({authorisationCode: event.target.value});
     localStorage.setItem("authorisationCode", event.target.value);
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
     alert('A name was submitted: ' + this.state.authorisationCode);
-    this.tokenAuthorisationCode();
+    await this.tokenAuthorisationCode();
+    await this.getAccountList();
     
   }
 
   async clientAssertion(){
     try{
+
+      var randomstring = require("randomstring");
+
+      let sub = randomstring.generate({
+        length: 7,
+        charset: 'alphabetic',
+        capitalization: 'uppercase'
+      });
+
+      console.log("----------> sub =")
+      console.log(sub);
+
+      this.setState({ sub: sub });
+      localStorage.setItem("sub", sub);
+
       let body = { 
         "iss": "2s5j8qga43p9oa91abgh2vv19o", 
-        "sub": "lab126", 
+        "sub": `${this.state.sub}`, 
         "jti": "id123456",  
         "aud": "https://api.hsbc.qa.xlabs.one/as/token.oauth2"
       };
+
+      console.log(body);
 
       let response = await fetch(`https://api.hsbc.qa.xlabs.one/invoauth2/client-assertion`, {
         method: 'POST',
@@ -155,7 +175,7 @@ class Account extends Component {
       
       let body = {
           "client_id": "2s5j8qga43p9oa91abgh2vv19o",
-          "sub": "lab126", 
+          "sub": `${this.state.sub}`, 
           "scope": "accounts", 
           "redirect_uri": "https://www.test.com/lab126", 
           "intent_id": `${intentId}` 
@@ -195,8 +215,8 @@ class Account extends Component {
       let body = `grant_type=authorization_code&scope=accounts&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=${this.state.clientAssertionResponse}&client_id=2s5j8qga43p9oa91abgh2vv19o&client_secret=1gvbcerbscapnv7ueq0vpsdbrod5rjrl13b2jqof503ov33gbf2&code=${this.state.authorisationCode}&redirect_uri=https%3A%2F%2Fwww.test.com%2Flab126`
 
       let headers = {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Accept' : 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded', 
+        'Accept': 'application/json'
       }
 
       console.log(body);
@@ -210,8 +230,9 @@ class Account extends Component {
       
       let json = await response.json()
       console.log(json);
+      console.log(json.access_token);
     
-      this.setState( {tokenAuthorisationResponse: json })
+      this.setState( {tokenAuthorisationResponse: json.access_token })
       localStorage.setItem("tokenAuthorisationResponse", json);
     
       return json
@@ -219,6 +240,39 @@ class Account extends Component {
       console.log(err)
     }  
   }
+
+  async getAccountList(){
+    
+    try {
+
+      let headers = {
+        'Accept': 'application/json', 
+        'x-fapi-customer-ip-address' : '10.23.143.98', 
+        'x-fapi-customer-last-logged-time' : 'Sun, 10 Sep 2017 19:43:31 UTC', 
+        'x-fapi-interaction-id' : '2c96efd2-6566-490a-81d7-24dd51340196', 
+        'x-fapi-financial-id' : 'OB/2017/001', 
+        'Authorization' : `bearer ${this.state.tokenAuthorisationResponse}`
+      }
+
+      console.log(headers);
+
+      let response = await fetch(`https://api.hsbc.qa.xlabs.one/invais/open-banking/v1.1/accounts`, {
+        method: 'GET',
+        headers: headers,
+        })
+      
+      let json = await response.json()
+      console.log(json);
+    
+      // URL returned contain spaces, must use function to replace space with %20
+      this.setState( {accountListResponse: json })
+      localStorage.setItem("accountListResponse", json);
+    
+      return json
+    } catch (err){
+      console.log(err)
+    }
+  }  
 
   hydrateStateWithLocalStorage = () => {
     // for all items in state
@@ -292,17 +346,17 @@ componentWillUnmount () {
         {this.state.tokenClientCredentialsResponse}
         <h2>Step 3: POST /open-banking/v1.1/account-requests</h2>
         {this.state.AccountRequestId}
-        <h2>Step4: POST /authorize-url-generate</h2>
+        <h2>Step 4: POST /authorize-url-generate</h2>
         <a href={this.state.generateurl} target="_blank">Authorize Request</a>
-        <h2>POST /as/token-authorization-code (Please type in the code that you obtained from the redirect):</h2>
+        <h2>Step 5: POST /as/token.oauth2 (Please type in the code that you obtained from the redirect):</h2>
         <form onSubmit={this.handleSubmit}>
         <label>
           Authorisation code:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
-        <br />
-        {this.state.authorisationCode}
+        <h2>Step 6: GET /open-banking/v1.1/accounts</h2>
+        {this.state.accountListResponse}
       </form>
       </div>
     );

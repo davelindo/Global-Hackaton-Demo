@@ -12,7 +12,8 @@ class Account extends Component {
       generateurl: '',
       authorisationCode: '',
       tokenAuthorisationResponse: '',
-      accountListResponse: ''
+      accountListResponse: '',
+      accountBalance: ''
    };
 
   this.handleChange = this.handleChange.bind(this);
@@ -354,7 +355,6 @@ class Account extends Component {
         const accessToken = await this.tokenClientCredentials(clientAssertion);
         const intentId = await this.retrieveAccountRequest(accessToken);
         const generateurl = await this.generateUrl(intentId);
-
       }
         catch(err){
             console.log(err)
@@ -387,6 +387,9 @@ class Account extends Component {
         <input type="submit" value="Submit" />
         <h2>Step 6: GET /open-banking/v1.1/accounts</h2>
         <h2>{this.state.accountListResponse.toString()}</h2>
+        <h2>Step 7: GET /open-banking/v1.1/accounts/{this.state.AccountRequestId}/balances</h2>
+        <h2>{this.state.accountBalance}</h2>
+        
       </form>
       </div>
     );

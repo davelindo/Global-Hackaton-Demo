@@ -1,0 +1,222 @@
+{
+    "Data": {
+      "Beneficiary": [
+        {
+          "AccountId": "AID690695",
+          "BeneficiaryId": "145605319",
+          "Reference": "10000123030085",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10347822924634",
+            "Name": "Dorothy Molly Smith",
+            "SecondaryIdentification": "FVZMLX"
+          }
+        },
+        {
+          "AccountId": "AID690695",
+          "BeneficiaryId": "145605320",
+          "Reference": "10000123030085",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10338222919340",
+            "Name": "Gemma Louise Grant",
+            "SecondaryIdentification": "J39OSU"
+          }
+        },
+        {
+          "AccountId": "AID690695",
+          "BeneficiaryId": "145605321",
+          "Reference": "10000123030085",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "20100014856210",
+            "Name": "Horton Ltd",
+            "SecondaryIdentification": "8HBACN"
+          }
+        },
+        {
+          "AccountId": "AID203857",
+          "BeneficiaryId": "153455979",
+          "Reference": "10000125273255",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "20160064074031",
+            "Name": "Barnes, Carr and Walker",
+            "SecondaryIdentification": "DW82MG"
+          }
+        },
+        {
+          "AccountId": "AID203857",
+          "BeneficiaryId": "153455980",
+          "Reference": "10000125273255",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10333025148119",
+            "Name": "Damien Gordon Baker",
+            "SecondaryIdentification": "QBFYKH"
+          }
+        },
+        {
+          "AccountId": "AID203857",
+          "BeneficiaryId": "153455981",
+          "Reference": "10000125273255",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "20070057588386",
+            "Name": "Lee Inc",
+            "SecondaryIdentification": "IPUQIZ"
+          }
+        },
+        {
+          "AccountId": "AID203857",
+          "BeneficiaryId": "153455982",
+          "Reference": "10000125273255",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "20020008773459",
+            "Name": "Chapman PLC",
+            "SecondaryIdentification": "QHZ77D"
+          }
+        },
+        {
+          "AccountId": "AID328671",
+          "BeneficiaryId": "148631539",
+          "Reference": "10201523894818",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10332124014646",
+            "Name": "Linda Gillian Campbell",
+            "SecondaryIdentification": "S1JTUJ"
+          }
+        },
+        {
+          "AccountId": "AID328671",
+          "BeneficiaryId": "148631540",
+          "Reference": "10201523894818",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10044924163444",
+            "Name": "Iain Ross Wright",
+            "SecondaryIdentification": "799HRS"
+          }
+        },
+        {
+          "AccountId": "AID328671",
+          "BeneficiaryId": "148631541",
+          "Reference": "10201523894818",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10246723879073",
+            "Name": "Linda Irene Walton",
+            "SecondaryIdentification": "4TV21F"
+          }
+        },
+        {
+          "AccountId": "AID328671",
+          "BeneficiaryId": "148631542",
+          "Reference": "10201523894818",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10265723860682",
+            "Name": "Clarisa  Aguirre",
+            "SecondaryIdentification": "MRCBUH"
+          }
+        },
+        {
+          "AccountId": "AID721020",
+          "BeneficiaryId": "105310898",
+          "Reference": "10201711517730",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10040911197071",
+            "Name": "Arthur Connor Singh",
+            "SecondaryIdentification": "6GSNNX"
+          }
+        },
+        {
+          "AccountId": "AID721020",
+          "BeneficiaryId": "105310899",
+          "Reference": "10201711517730",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10267911555398",
+            "Name": "Anne Tina Edwards",
+            "SecondaryIdentification": "HKHEZ8"
+          }
+        },
+        {
+          "AccountId": "AID721020",
+          "BeneficiaryId": "105310900",
+          "Reference": "10201711517730",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "20140026069348",
+            "Name": "Smith Group",
+            "SecondaryIdentification": "2NFHS9"
+          }
+        },
+        {
+          "AccountId": "AID721020",
+          "BeneficiaryId": "105310901",
+          "Reference": "10201711517730",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "20150018709084",
+            "Name": "Gill Ltd",
+            "SecondaryIdentification": "HB09L0"
+          }
+        },
+        {
+          "AccountId": "AID462777",
+          "BeneficiaryId": "141143676",
+          "Reference": "10268521755518",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10044021339516",
+            "Name": "Leah Stephanie Bryant",
+            "SecondaryIdentification": "Y5A3JH"
+          }
+        },
+        {
+          "AccountId": "AID462777",
+          "BeneficiaryId": "141143677",
+          "Reference": "10268521755518",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10290121820374",
+            "Name": "Roberts, Daly and Chapman PLC",
+            "SecondaryIdentification": "2N2WWE"
+          }
+        },
+        {
+          "AccountId": "AID462777",
+          "BeneficiaryId": "141143678",
+          "Reference": "10268521755518",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "20010022381343",
+            "Name": "Gibson-Davis",
+            "SecondaryIdentification": "HJS04R"
+          }
+        },
+        {
+          "AccountId": "AID462777",
+          "BeneficiaryId": "141143679",
+          "Reference": "10268521755518",
+          "CreditorAccount": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "10010621418535",
+            "Name": "Reece Oliver Riley",
+            "SecondaryIdentification": "FZSR1P"
+          }
+        }
+      ]
+    },
+    "Links": {
+      "Self": "/beneficiaries/"
+    },
+    "Meta": {
+      "TotalPages": 1
+    }
+  }
+  

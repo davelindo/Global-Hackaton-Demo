@@ -1,0 +1,47 @@
+{
+  "Data": {
+    "Product": [
+      {
+        "AccountId": "AID690695",
+        "ProductIdentifier": "1001",
+        "ProductType": "PCA",
+        "ProductName": "Basic Bank Account",
+        "SecondaryProductIdentifier": "CURRENT_ACCOUNT"
+      },
+      {
+        "AccountId": "AID203857",
+        "ProductIdentifier": "1001",
+        "ProductType": "PCA",
+        "ProductName": "Basic Bank Account",
+        "SecondaryProductIdentifier": "CURRENT_ACCOUNT"
+      },
+      {
+        "AccountId": "AID328671",
+        "ProductIdentifier": "1010",
+        "ProductType": "PCA",
+        "ProductName": "Basic Bank Account",
+        "SecondaryProductIdentifier": "CURRENT_ACCOUNT"
+      },
+      {
+        "AccountId": "AID721020",
+        "ProductIdentifier": "1010",
+        "ProductType": "PCA",
+        "ProductName": "Basic Bank Account",
+        "SecondaryProductIdentifier": "CURRENT_ACCOUNT"
+      },
+      {
+        "AccountId": "AID462777",
+        "ProductIdentifier": "1013",
+        "ProductType": "PCA",
+        "ProductName": "Basic Bank Account",
+        "SecondaryProductIdentifier": "CURRENT_ACCOUNT"
+      }
+    ]
+  },
+  "Links": {
+    "Self": "/products/"
+  },
+  "Meta": {
+    "TotalPages": 1
+  }
+}

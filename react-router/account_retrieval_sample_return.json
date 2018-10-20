@@ -1,0 +1,67 @@
+{
+  "Data": {
+    "Account": [
+      {
+        "AccountId": "AID690695",
+        "Currency": "GBP",
+        "Nickname": "Anth",
+        "Account": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10000123030085",
+          "Name": "Anthony Joseph Barker",
+          "SecondaryIdentification": "GOKE59"
+        }
+      },
+      {
+        "AccountId": "AID203857",
+        "Currency": "GBP",
+        "Nickname": "Aaro",
+        "Account": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10000125273255",
+          "Name": "Aaron Mohamed Gibbs",
+          "SecondaryIdentification": "XNC8QT"
+        }
+      },
+      {
+        "AccountId": "AID328671",
+        "Currency": "GBP",
+        "Nickname": "Kati",
+        "Account": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10201523894818",
+          "Name": "Katie Sarah Cox",
+          "SecondaryIdentification": "YYT7IO"
+        }
+      },
+      {
+        "AccountId": "AID721020",
+        "Currency": "GBP",
+        "Nickname": "Donn",
+        "Account": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10201711517730",
+          "Name": "Donna Ellie Ellis",
+          "SecondaryIdentification": "OGNAVE"
+        }
+      },
+      {
+        "AccountId": "AID462777",
+        "Currency": "GBP",
+        "Nickname": "Kath",
+        "Account": {
+          "SchemeName": "SortCodeAccountNumber",
+          "Identification": "10268521755518",
+          "Name": "Kathleen Dorothy Wilson",
+          "SecondaryIdentification": "YA994Z"
+        }
+      }
+    ]
+  },
+  "Links": {
+    "Self": "/accounts/"
+  },
+  "Meta": {
+    "TotalPages": 1
+  }
+}

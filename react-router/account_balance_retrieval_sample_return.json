@@ -1,0 +1,62 @@
+{
+    "Data": {
+      "Balance": [
+        {
+          "AccountId": "AID690695",
+          "Amount": {
+            "Amount": "38,881.98",
+            "Currency": "GBP"
+          },
+          "CreditDebitIndicator": "Debit",
+          "Type": "ClosingAvailable",
+          "DateTime": "2018-03-08T09:45:16+00:00"
+        },
+        {
+          "AccountId": "AID203857",
+          "Amount": {
+            "Amount": "39,442.43",
+            "Currency": "GBP"
+          },
+          "CreditDebitIndicator": "Debit",
+          "Type": "ClosingAvailable",
+          "DateTime": "2018-03-08T09:45:16+00:00"
+        },
+        {
+          "AccountId": "AID328671",
+          "Amount": {
+            "Amount": "56,018.58",
+            "Currency": "GBP"
+          },
+          "CreditDebitIndicator": "Debit",
+          "Type": "ClosingAvailable",
+          "DateTime": "2018-03-08T09:45:16+00:00"
+        },
+        {
+          "AccountId": "AID721020",
+          "Amount": {
+            "Amount": "27,505.75",
+            "Currency": "GBP"
+          },
+          "CreditDebitIndicator": "Debit",
+          "Type": "ClosingAvailable",
+          "DateTime": "2018-03-08T09:45:16+00:00"
+        },
+        {
+          "AccountId": "AID462777",
+          "Amount": {
+            "Amount": "38,493.28",
+            "Currency": "GBP"
+          },
+          "CreditDebitIndicator": "Debit",
+          "Type": "ClosingAvailable",
+          "DateTime": "2018-03-08T09:45:16+00:00"
+        }
+      ]
+    },
+    "Links": {
+      "Self": "/balances/"
+    },
+    "Meta": {
+      "TotalPages": 1
+    }
+  }

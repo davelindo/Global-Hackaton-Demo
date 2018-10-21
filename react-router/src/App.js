@@ -8,7 +8,7 @@ import logo from './logo.svg';
 import './App.css';
 import ThumbNail from './components/thumbNail';
 import Page3 from './page3';
-import Page6 from './screenFriends';
+import ScreenFriends from './screenFriends';
 
 class App extends Component {
   render() {
@@ -31,7 +31,7 @@ class App extends Component {
           <Link to="/test1">Test 1</Link> | 
           <Link to="/test2">Test 2</Link> |
           <Link to="/accounts">Account</Link>|
-          <Link to="/Page3">Page3</Link>
+          <Link to="/Page3">Page3</Link> | 
           <Link to="/ScreenFriends">ScreenFriends</Link>
 
           <ThumbNail />

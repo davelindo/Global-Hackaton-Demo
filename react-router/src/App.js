@@ -8,6 +8,7 @@ import logo from './logo.svg';
 import './App.css';
 import ThumbNail from './components/thumbNail';
 import Page3 from './page3';
+import Page6 from './screenFriends';
 
 class App extends Component {
   render() {
@@ -24,13 +25,14 @@ class App extends Component {
           <Route path="/test2" component={TestView2} />
           <Route path="/accounts" component={Account} />
           <Route path="/page3" component={Page3} />
+          <Route path="/screenFriends" component={ScreenFriends} />
 
           <Link to="/">Home</Link> | 
           <Link to="/test1">Test 1</Link> | 
           <Link to="/test2">Test 2</Link> |
           <Link to="/accounts">Account</Link>|
           <Link to="/Page3">Page3</Link>
-          
+          <Link to="/ScreenFriends">ScreenFriends</Link>
 
           <ThumbNail />
           

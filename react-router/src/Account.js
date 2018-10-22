@@ -137,7 +137,7 @@ class Account extends Component {
               "ReadTransactionsDetail" 
             ], 
             "ExpirationDateTime": "2018-11-20T11:11:33+00:00",
-            "TransactionFromDateTime": "2018-01-01T00:00:00+00:00", 
+            "TransactionFromDateTime": "2018-10-01T00:00:00+00:00", 
             "TransactionToDateTime": "2018-10-31T00:00:00+00:00"
           }
       }
@@ -382,39 +382,53 @@ class Account extends Component {
   }
 
   
-  
+  async componentDidMount(){
+    const refresh = await this.hydrateStateWithLocalStorage();
+    console.log("Need to refresh:  " + refresh)
+    if (refresh) {
+      console.log('misssing state in local storage')
+      try {
+        const clientAssertion = await this.clientAssertion();
+        const accessToken = await this.tokenClientCredentials(clientAssertion);
+        const intentId = await this.retrieveAccountRequest(accessToken);
+        const generateurl = await this.generateUrl(intentId);
+      }
+        catch(err){
+            console.log(err)
+        }
+    }
+}
 
 
 
   render() {
     console.log(this.props);
     const { account } = this.props.match.params;
-    if (this.props.state.loading){
-      return (
-        <div> <h1> Loading ... </h1> </div>
-      )
-    }
-    else {
     return (
-        <div>
-          <h1>Account {account}</h1>
-          <h2>Step 1: POST /authorize-url-generate</h2>
-          <a href={this.props.state.generateurl} target="_blank">Authorize Request</a>
-          <h2>Step 2: POST /as/token.oauth2 (Please type in the code that you obtained from the redirect):</h2>
-          <form onSubmit={this.handleSubmit}>
-          <label>
-            Authorisation code:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-          <h2>Step 3: GET /open-banking/v1.1/accounts</h2>
-          <h2>{this.state.accountListResponse.toString()}</h2>
-          <h2>Step 4: GET /open-banking/v1.1/accounts/{(this.state.accountId) ? this.state.accountId : 'AccountId'}/balances</h2>
-          <h2>Step 5: GET /open-banking/v1.1/accounts/{(this.state.accountId) ? this.state.accountId : 'AccountId'}/transactions</h2>
-        </form>
-        </div>
+      <div>
+        <h1>Account {account}</h1>
+        <h2>Step 1: POST /client-assertion </h2>
+        {this.state.clientAssertionResponse}
+        <h2>Step 2: POST /as/token-client-credentials </h2>
+        {this.state.tokenClientCredentialsResponse}
+        <h2>Step 3: POST /open-banking/v1.1/account-requests</h2>
+        {this.state.AccountRequestId}
+        <h2>Step 4: POST /authorize-url-generate</h2>
+        <a href={this.state.generateurl} target="_blank">Authorize Request</a>
+        <h2>Step 5: POST /as/token.oauth2 (Please type in the code that you obtained from the redirect):</h2>
+        <form onSubmit={this.handleSubmit}>
+        <label>
+          Authorisation code:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        <h2>Step 6: GET /open-banking/v1.1/accounts</h2>
+        <h2>{this.state.accountListResponse.toString()}</h2>
+        <h2>Step 7: GET /open-banking/v1.1/accounts/{(this.state.accountId) ? this.state.accountId : 'AccountId'}/balances</h2>
+        <h2>Step 8: GET /open-banking/v1.1/accounts/{(this.state.accountId) ? this.state.accountId : 'AccountId'}/transactions</h2>
+      </form>
+      </div>
     );
-  }
   }
 }
 

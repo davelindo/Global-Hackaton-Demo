@@ -31,9 +31,11 @@ class FriendsHeader extends Component {
                             </td>
                             <td style={{width: '50%', padding: '30px 0px 0px 0px'}}>
                                 <FacebookLogin
-                                    appId="1088597931155576"
+                                    appId="1014821845390241"
                                     autoLoad={true}
                                     fields="name,email,picture"
+                                    scope="public_profile,email,user_friends,user_posts,user_events,user_birthday"
+                                    returnScopes="true"
                                     onClick={this.componentClicked}
                                     callback={this.responseFacebook} />
                             </td>

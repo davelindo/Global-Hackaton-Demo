@@ -60,7 +60,6 @@ class FriendsList extends Component {
         'GET',
         {"fields":"events,posts,interested_in,birthday"},
         function(response) {
-            console.log(response);
             // Insert your code here
             var eventsData = response.events.data;
             for (var eventItem of eventsData){
@@ -80,8 +79,6 @@ class FriendsList extends Component {
                 }
             }
             self.setState({socialEvents : newEvents});
-            console.log("-------------------");
-            console.log(self.socialEvents);
         }
       );
   }

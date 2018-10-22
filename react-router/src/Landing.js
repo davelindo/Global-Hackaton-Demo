@@ -9,17 +9,17 @@ class Landing extends Component {
     return (
       <div>
         <h3>Good morning</h3>
-        <div class="d-inline-flex flex-grow-1" style={{height: '362.3px',backgroundImage: 'url("assets/img/playground.png")'}}>
+        <div class="d-inline-flex flex-grow-1" style={{height: '362.3px',backgroundImage: 'url(' + require('./assets/img/playground.png') + ')'}}>
             <div class="carousel slide" data-ride="carousel" id="carousel-2">
                 <div class="carousel-inner flex-grow-0" role="listbox">
-                    <div class="carousel-item" style={{backgroundImage: 'url("assets/img/playground.png")',height: '243.884px',width: '569px'}}><img class="w-100 d-block"/>
+                    <div class="carousel-item" style={ { backgroundImage: 'url(' + require('./assets/img/playground.png') + ')', height: '243.884px', width: '569px' } }><img class="w-100 d-block"/>
                         <div class="carousel-caption">
                             <h4 class="text-left text-dark">You have</h4>
                             <h3 class="text-dark">$1,826.23</h3>
                             <p class="text-left text-muted">1 active account</p>
                         </div>
                     </div>
-                    <div class="carousel-item active" style={{backgroundImage: 'url("assets/img/playground.png")',height: '243.884px',width: '569px'}}><img class="w-100 d-block"/>
+                    <div class="carousel-item active" style={{backgroundImage: 'url(' + require('./assets/img/playground.png') + ')',height: '243.884px',width: '569px'}}><img class="w-100 d-block"/>
                         <div class="carousel-caption">
                             <h4 class="text-left text-dark">You owe</h4>
                             <h3 class="text-dark">-$213.11</h3>

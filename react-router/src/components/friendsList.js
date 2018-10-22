@@ -64,16 +64,20 @@ class FriendsList extends Component {
             // Insert your code here
             var eventsData = response.events.data;
             for (var eventItem of eventsData){
-                var parsedDate = Date.parse(eventItem.start_time);
-                var noDays = Math.round((parsedDate - (new Date()))/(1000*60*60*24));
-                var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+                if (!newEvents.find(function(anEvent){
+                    return anEvent.name === eventItem.description
+                })){
+                    var parsedDate = Date.parse(eventItem.start_time);
+                    var noDays = Math.round((parsedDate - (new Date()))/(1000*60*60*24));
+                    var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
-                newEvents.push({
-                    "name": eventItem.description, 
-                    "daysToEvent": noDays + ' days - ' + (new Date(parsedDate)).toLocaleDateString("en-US", options),
-                    "eventIcon": "fas fa-info-circle",
-                    "color": "#f77f00"
-                })
+                    newEvents.push({
+                        "name": eventItem.description, 
+                        "daysToEvent": noDays + ' days - ' + (new Date(parsedDate)).toLocaleDateString("en-US", options),
+                        "eventIcon": "fas fa-info-circle",
+                        "color": "#f77f00"
+                    })
+                }
             }
             self.setState({socialEvents : newEvents});
             console.log("-------------------");

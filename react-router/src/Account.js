@@ -389,31 +389,38 @@ class Account extends Component {
   render() {
     console.log(this.props);
     const { account } = this.props.match.params;
+    if (this.props.state.loading){
+      return (
+        <div> <h1> Loading ... </h1> </div>
+      )
+    }
+    else {
     return (
-      <div>
-        <h1>Account {account}</h1>
-        <h2>Step 1: POST /client-assertion </h2>
-        {this.props.state.clientAssertionResponse}
-        <h2>Step 2: POST /as/token-client-credentials </h2>
-        {this.props.state.tokenClientCredentialsResponse}
-        <h2>Step 3: POST /open-banking/v1.1/account-requests</h2>
-        {this.props.state.AccountRequestId}
-        <h2>Step 4: POST /authorize-url-generate</h2>
-        <a href={this.props.state.generateurl} target="_blank">Authorize Request</a>
-        <h2>Step 5: POST /as/token.oauth2 (Please type in the code that you obtained from the redirect):</h2>
-        <form onSubmit={this.handleSubmit}>
-        <label>
-          Authorisation code:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-        <h2>Step 6: GET /open-banking/v1.1/accounts</h2>
-        <h2>{this.state.accountListResponse.toString()}</h2>
-        <h2>Step 7: GET /open-banking/v1.1/accounts/{(this.state.accountId) ? this.state.accountId : 'AccountId'}/balances</h2>
-        <h2>Step 8: GET /open-banking/v1.1/accounts/{(this.state.accountId) ? this.state.accountId : 'AccountId'}/transactions</h2>
-      </form>
-      </div>
+        <div>
+          <h1>Account {account}</h1>
+          <h2>Step 1: POST /client-assertion </h2>
+          {this.props.state.clientAssertionResponse}
+          <h2>Step 2: POST /as/token-client-credentials </h2>
+          {this.props.state.tokenClientCredentialsResponse}
+          <h2>Step 3: POST /open-banking/v1.1/account-requests</h2>
+          {this.props.state.AccountRequestId}
+          <h2>Step 4: POST /authorize-url-generate</h2>
+          <a href={this.props.state.generateurl} target="_blank">Authorize Request</a>
+          <h2>Step 5: POST /as/token.oauth2 (Please type in the code that you obtained from the redirect):</h2>
+          <form onSubmit={this.handleSubmit}>
+          <label>
+            Authorisation code:
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+          <h2>Step 6: GET /open-banking/v1.1/accounts</h2>
+          <h2>{this.state.accountListResponse.toString()}</h2>
+          <h2>Step 7: GET /open-banking/v1.1/accounts/{(this.state.accountId) ? this.state.accountId : 'AccountId'}/balances</h2>
+          <h2>Step 8: GET /open-banking/v1.1/accounts/{(this.state.accountId) ? this.state.accountId : 'AccountId'}/transactions</h2>
+        </form>
+        </div>
     );
+  }
   }
 }
 

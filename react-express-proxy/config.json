@@ -1,0 +1,11 @@
+{
+  "serverUrl": "http://openam.example.com:8080/openam", // the base URL of your OpenAM deployment
+  "appUrl": "http://app.example.com:8080",              // the base URL of the demo app (needed for notifications)
+  "notificationRoute": "/",                             // the root path where the notification middleware is attached
+  "notificationsEnabled": true,
+  "username": "demo-agent",                             // the agent's user name
+  "password": "changeit",                               // the agent's password
+  "realm": "/",                                         // the agent's realm
+  "appName": "demo-app",                                // the name of the entitlement application used for the PolicyShield
+  "logLevel": "info"
+}

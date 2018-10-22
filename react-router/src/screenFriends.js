@@ -22,7 +22,7 @@ import {
 class ScreenFriends extends Component {
   render() {
     return (
-      <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
+      <Responsive >
         <section style={{height: '626px' }}>
             <FriendsHeader/>
             <FriendsList/>

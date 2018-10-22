@@ -382,22 +382,7 @@ class Account extends Component {
   }
 
   
-  async componentDidMount(){
-    const refresh = await this.hydrateStateWithLocalStorage();
-    console.log("Need to refresh:  " + refresh)
-    if (refresh) {
-      console.log('misssing state in local storage')
-      try {
-        const clientAssertion = await this.clientAssertion();
-        const accessToken = await this.tokenClientCredentials(clientAssertion);
-        const intentId = await this.retrieveAccountRequest(accessToken);
-        const generateurl = await this.generateUrl(intentId);
-      }
-        catch(err){
-            console.log(err)
-        }
-    }
-}
+  
 
 
 
@@ -408,13 +393,13 @@ class Account extends Component {
       <div>
         <h1>Account {account}</h1>
         <h2>Step 1: POST /client-assertion </h2>
-        {this.state.clientAssertionResponse}
+        {this.props.state.clientAssertionResponse}
         <h2>Step 2: POST /as/token-client-credentials </h2>
-        {this.state.tokenClientCredentialsResponse}
+        {this.props.state.tokenClientCredentialsResponse}
         <h2>Step 3: POST /open-banking/v1.1/account-requests</h2>
-        {this.state.AccountRequestId}
+        {this.props.state.AccountRequestId}
         <h2>Step 4: POST /authorize-url-generate</h2>
-        <a href={this.state.generateurl} target="_blank">Authorize Request</a>
+        <a href={this.props.state.generateurl} target="_blank">Authorize Request</a>
         <h2>Step 5: POST /as/token.oauth2 (Please type in the code that you obtained from the redirect):</h2>
         <form onSubmit={this.handleSubmit}>
         <label>

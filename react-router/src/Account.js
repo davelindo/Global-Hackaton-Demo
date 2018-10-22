@@ -137,7 +137,7 @@ class Account extends Component {
               "ReadTransactionsDetail" 
             ], 
             "ExpirationDateTime": "2018-11-20T11:11:33+00:00",
-            "TransactionFromDateTime": "2018-10-01T00:00:00+00:00", 
+            "TransactionFromDateTime": "2018-01-01T00:00:00+00:00", 
             "TransactionToDateTime": "2018-10-31T00:00:00+00:00"
           }
       }

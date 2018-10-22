@@ -39,17 +39,11 @@ class App extends Component {
           <Link to="/test1">Test 1</Link> | 
           <Link to="/test2">Test 2</Link> |
           <Link to="/accounts">Account</Link>|
-<<<<<<< HEAD
           <Link to="/Page3">Page3</Link> | 
           <Link to="/ScreenFriends">ScreenFriends</Link>|
           <Link to="/Landing">Landing</Link>|
           <Link to="/newGoal">New Goal</Link>
           
-          
-=======
-          <Link to="/Page3">Page3</Link> |
-          <Link to="/ScreenFriends">ScreenFriends</Link>
->>>>>>> 9fc02be5add969aac7002bf16ba89f9003abd2f0
 
           <ThumbNail />
           

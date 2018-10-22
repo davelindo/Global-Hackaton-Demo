@@ -11,7 +11,8 @@ class FriendsHeader extends Component {
 
   
   responseFacebook = (response) => {
-    console.log(response);
+    this.props.onLogin(response);
+    //console.log(response);
   }
 
   componentClicked = (data) => {

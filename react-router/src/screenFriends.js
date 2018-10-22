@@ -20,12 +20,19 @@ import {
 } from 'semantic-ui-react'
 
 class ScreenFriends extends Component {
+
+    handleLogin = (data) => {
+        console.log("Got this: " + data);
+        this.socialEvents.enrichSocialEvents(data);
+        //FriendsList.enrichSocialEvents(data);
+    }
+
   render() {
     return (
       <Responsive >
         <section style={{height: '626px' }}>
-            <FriendsHeader/>
-            <FriendsList/>
+            <FriendsHeader onLogin={this.handleLogin}/>
+            <FriendsList ref={(child) => { this.socialEvents = child; }} />
         </section>
       </Responsive>
     );

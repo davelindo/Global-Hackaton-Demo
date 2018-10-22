@@ -39,10 +39,47 @@ class FriendsList extends Component {
         </tr>
     );
     return (
-        <tbody>
-        {listItems}      
-        </tbody>
+        <table class="table">
+            <tbody style={{width: '100%' }}>
+                {listItems}      
+            </tbody>
+        </table>
     );
+  }
+
+  enrichSocialEvents = (socialEvents) => {
+    console.log("Need to enrich with: ");
+    console.log(socialEvents);
+    var newEvents = this.state.socialEvents;
+    console.log("-------------------");
+    console.log(newEvents);
+    var self = this;
+
+    window.FB.api(
+        '/me',
+        'GET',
+        {"fields":"events,posts,interested_in,birthday"},
+        function(response) {
+            console.log(response);
+            // Insert your code here
+            var eventsData = response.events.data;
+            for (var eventItem of eventsData){
+                var parsedDate = Date.parse(eventItem.start_time);
+                var noDays = Math.round((parsedDate - (new Date()))/(1000*60*60*24));
+                var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+                newEvents.push({
+                    "name": eventItem.description, 
+                    "daysToEvent": noDays + ' days - ' + (new Date(parsedDate)).toLocaleDateString("en-US", options),
+                    "eventIcon": "fas fa-info-circle",
+                    "color": "#f77f00"
+                })
+            }
+            self.setState({socialEvents : newEvents});
+            console.log("-------------------");
+            console.log(self.socialEvents);
+        }
+      );
   }
 
   render() {
@@ -51,11 +88,7 @@ class FriendsList extends Component {
             <ul class="list-group list-group-flush" style={{width: '100%' }}>
                 <li class="list-group-item" style={{padding: '0px 5px', width: '100%' }}>
                     <div class="table-responsive" style={{width: '100%' }}>
-                        <table class="table">
-                            <tbody style={{width: '100%' }}>
-                                {this.listSocialEvents(this.state.socialEvents)}
-                            </tbody>
-                        </table>
+                        {this.listSocialEvents(this.state.socialEvents)}
                     </div>
                 </li>
             </ul>

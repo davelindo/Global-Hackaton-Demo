@@ -1,8 +1,8 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/google.com:$PROJECT_ID/react-router:$REVISION_ID', '.']
+  args: ['build', '--tag=gcr.io/davelindon-sandbox/react-router:$REVISION_ID', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/google.com:$PROJECT_ID/react-router:latest', '.']
+  args: ['build', '--tag=gcr.io/davelindon-sandbox/react-router:latest', '.']
 images:
 - 'gcr.io/$PROJECT_ID/react-router:$REVISION_ID'
 - 'gcr.io/$PROJECT_ID/react-router:latest'

@@ -20,13 +20,21 @@ import {
 } from 'semantic-ui-react'
 
 class Goal extends Component {
+  constructor(props) {
+    super(props);
+  };
+  
   render() {
+    if (this.props.balance === null){
+      return null
+    } else {
     return (
       <Responsive>
-        < GoalTile />
+        < GoalTile balance={this.props.balance}/>
         <ContributionsTile/>
       </Responsive>
     );
+  }
   }
 
   }

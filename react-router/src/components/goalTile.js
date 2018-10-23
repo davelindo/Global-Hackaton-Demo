@@ -16,15 +16,20 @@ class GoalTile extends Component {
 
   computeProgress = (contributor) => {
     if (contributor === 'self'){
-      return 100 * this.state.goal.own_contribution/this.state.goal.amount
+      return 40
     } else if (contributor == 'other'){
-      return 100 * this.state.goal.other_contribution/this.state.goal.amount
+      return 10
     } else {
-      return 100 * (1 - this.state.goal.other_contribution/this.state.goal.amount - this.state.goal.own_contribution/this.state.goal.amount )
+      return 50
     }
   }
 
   render() {
+    if (!this.props.balance){
+        return (<div><h1> Loading ...</h1></div>)
+    } else {
+        console.log("goal tile")
+        console.log(this.props.balance)
     return (
       <div className="card">
       <div className="card-body">
@@ -34,7 +39,7 @@ class GoalTile extends Component {
               <table className="table table-bordered">
                   <tbody>
                       <tr>
-                          <td style={{fontSize: '45px', padding: '0px'}}>{`$${this.state.goal.own_contribution + this.state.goal.other_contribution}`}</td>
+                          <td style={{fontSize: '45px', padding: '0px'}}>{`$${this.props.balance.Data.Balance[0].Amount.Amount}`}</td>
                           <td style={{fontSize: '40px',color: '#888888',padding: '0px'}}>27 days</td>
                       </tr>
                       <tr>
@@ -106,6 +111,7 @@ class GoalTile extends Component {
       </div>
   </div>
     );
+}
   }
 }
 

@@ -38,8 +38,9 @@ class Account extends Component {
     //console.log("------------------> finish printing account id");
     // This is for account 10000125273255 (AID396991)
     //accountId: json.Data.Account[0].AccountId
-    await this.getAccountBalanceById(this.state.accountId);
-    await this.getAccountTransactionsById(this.state.accountId);
+    const balance = await this.getAccountBalanceById(this.state.accountId);
+    const transactions = await this.getAccountTransactionsById(this.state.accountId);
+    this.props.setStates(this.state.accountListResponse, balance, transactions)
   }
 
   async clientAssertion(){

@@ -5,10 +5,14 @@ import ContributionsTile from './components/contributionsTile';
 
 
 class Landing extends Component {
+    constructor(props) {
+        super(props);
+      }
+
   render() {
     return (
       <div>
-        <h3>Good morning</h3>
+        <h3>{`Good morning ${this.props.account.Data.Account[0].Account.Name}`}</h3>
         <div className="d-inline-flex flex-grow-1" style={{height: '362.3px',backgroundImage: 'url(' + require('./assets/img/playground.png') + ')'}}>
             <div className="carousel slide" data-ride="carousel" id="carousel-2">
                 <div className="carousel-inner flex-grow-0" role="listbox">

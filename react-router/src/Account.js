@@ -186,7 +186,7 @@ class Account extends Component {
           "client_id": "2s5j8qga43p9oa91abgh2vv19o",
           "sub": `${this.state.sub}`, 
           "scope": "accounts", 
-          "redirect_uri": "https://www.test.com/lab126", 
+          "redirect_uri": "https://localhost:3000/Landing", 
           "intent_id": `${intentId}` 
       }
 

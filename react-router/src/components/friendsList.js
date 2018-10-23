@@ -51,8 +51,6 @@ class FriendsList extends Component {
     console.log("Need to enrich with: ");
     console.log(socialEvents);
     var newEvents = this.state.socialEvents;
-    console.log("-------------------");
-    console.log(newEvents);
     var self = this;
 
     window.FB.api(

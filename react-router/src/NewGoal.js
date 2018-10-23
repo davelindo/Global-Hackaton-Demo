@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-class Page3 extends Component {
+class NewGoal extends Component {
   render() {
     return (
       <div class="card">
@@ -44,4 +44,4 @@ class Page3 extends Component {
 
   }
 
-  export default Page3;
+  export default NewGoal;

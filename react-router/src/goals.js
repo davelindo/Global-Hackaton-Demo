@@ -19,10 +19,10 @@ import {
   Visibility,
 } from 'semantic-ui-react'
 
-class Page3 extends Component {
+class Goals extends Component {
   render() {
     return (
-      <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
+      <Responsive>
         < GoalTile />
         <ContributionsTile/>
       </Responsive>
@@ -31,4 +31,4 @@ class Page3 extends Component {
 
   }
 
-  export default Page3;
+  export default Goals;

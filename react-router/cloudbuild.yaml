@@ -3,14 +3,14 @@ steps:
   args: ['install']
   dir: ./react-router/
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/davelindon-sandbox/react-router:$REVISION_ID', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/react-router:$REVISION_ID', '.']
   dir: ./react-router/
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/davelindon-sandbox/react-router:latest', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/react-router:latest', '.']
   dir: ./react-router/
 images:
-- 'gcr.io/davelindon-sandbox/react-router:$REVISION_ID'
-- 'gcr.io/davelindon-sandbox/react-router:latest'
+- 'gcr.io/$PROJECT_ID/react-router:$REVISION_ID'
+- 'gcr.io/$PROJECT_ID/react-router:latest'
 
 tags:
 - "latest"

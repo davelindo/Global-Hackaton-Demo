@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/google.com:davelindon-sandbox/microservice:latest
+        image: gcr.io/davelindon-demo/react-router:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

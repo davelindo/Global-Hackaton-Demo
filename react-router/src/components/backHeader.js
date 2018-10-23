@@ -14,7 +14,7 @@ class BackHeader extends Component {
   
   render() {
     return (
-      <div style={{backgroundColor: '#f8f9fa'}}><button class="btn btn-light btn-lg" onClick={this.props.history.goBack} type="button" style={{margin: '0px 16px',width: '58px'}}><i class="fa fa-chevron-left" style={{fontXize: '24px',color: '#888888'}}></i></button></div>
+      <div style={{backgroundColor: '#f8f9fa'}}><button className="btn btn-light btn-lg" onClick={this.props.history.goBack} type="button" style={{margin: '0px 16px',width: '58px'}}><i className="fa fa-chevron-left" style={{fontXize: '24px',color: '#888888'}}></i></button></div>
 
     );
   }

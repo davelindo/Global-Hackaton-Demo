@@ -30,14 +30,14 @@ class ContributionsTile extends Component {
     const listItems = contributions.map((contribution,index) =>
     <tr key={index}>
       <td>
-          <h4 class="text-muted">{contribution.date.split(" ")[1]}</h4>
-          <h6 class="text-muted">{contribution.date.split(" ")[0]}</h6>
+          <h4 className="text-muted">{contribution.date.split(" ")[1]}</h4>
+          <h6 className="text-muted">{contribution.date.split(" ")[0]}</h6>
       </td>
       <td>
-          <h4 class="text-muted">{contribution.contributor}</h4>
-          <h6 class="text-muted" style={{fontSize: '13px'}}>{contribution.message}</h6>
+          <h4 className="text-muted">{contribution.contributor}</h4>
+          <h6 className="text-muted" style={{fontSize: '13px'}}>{contribution.message}</h6>
       </td>
-      <td class="align-items-center align-content-center" style={{padding: '26px 0px',color: '#8f8f8f'}}>{`$${contribution.amount}`}</td>
+      <td className="align-items-center align-content-center" style={{padding: '26px 0px',color: '#8f8f8f'}}>{`$${contribution.amount}`}</td>
     </tr>
   );
   return (
@@ -51,10 +51,10 @@ class ContributionsTile extends Component {
   render() {
     
     return (
-      <div class="card">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table">
+      <div className="card">
+        <div className="card-body">
+            <div className="table-responsive">
+                <table className="table">
                    {this.mapContributors(this.state.contributions)}
                 </table>
             </div>

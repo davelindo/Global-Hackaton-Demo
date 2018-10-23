@@ -33,13 +33,13 @@ class FriendsList extends Component {
             <td style={{width: '15%' }}><i className={`${friend.eventIcon} d-flex justify-content-center align-items-center align-content-center m-auto rubberBand animated`} style={{fontSize: '32px', padding: '12px', color: friend.color }}></i></td>
             <td style={{width: '60%' }}>
                 <h5>{friend.name}</h5>
-                <h6 class="text-muted">{friend.daysToEvent}</h6>
+                <h6 className="text-muted">{friend.daysToEvent}</h6>
             </td>
-            <td style={{width: '25%' }}><button class="btn btn-success" type="button" style={{padding: '12px', width: '100%' }}>Contribute</button></td>
+            <td style={{width: '25%' }}><button className="btn btn-success" type="button" style={{padding: '12px', width: '100%' }}>Contribute</button></td>
         </tr>
     );
     return (
-        <table class="table">
+        <table className="table">
             <tbody style={{width: '100%' }}>
                 {listItems}      
             </tbody>
@@ -83,10 +83,10 @@ class FriendsList extends Component {
 
   render() {
     return (
-        <div class="card" style={{width: '100%' }}>
-            <ul class="list-group list-group-flush" style={{width: '100%' }}>
-                <li class="list-group-item" style={{padding: '0px 5px', width: '100%' }}>
-                    <div class="table-responsive" style={{width: '100%' }}>
+        <div className="card" style={{width: '100%' }}>
+            <ul className="list-group list-group-flush" style={{width: '100%' }}>
+                <li className="list-group-item" style={{padding: '0px 5px', width: '100%' }}>
+                    <div className="table-responsive" style={{width: '100%' }}>
                         {this.listSocialEvents(this.state.socialEvents)}
                     </div>
                 </li>

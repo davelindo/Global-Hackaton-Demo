@@ -43,7 +43,7 @@ class Landing extends Component {
             </div>
         </div>
         <div class="d-block" style={{height: '70px'}}>
-            <div class="btn-group float-right" role="group" style={{padding: '10px 49px'}}><button class="btn btn-secondary" type="button" style={{padding: '12px 24px'}}>Maybe later</button><button class="btn btn-success" type="button" style={{padding: '12px 24px'}}>Tell me more</button></div>
+            <div class="btn-group float-right" role="group" style={{padding: '10px 49px'}}><button class="btn btn-secondary" type="button" style={{padding: '12px 24px'}}>Maybe later</button><Link to="/financialGoals"><button class="btn btn-success" type="button" style={{padding: '12px 24px'}}>Tell me more</button></Link></div>
         </div>
     </div>
     );

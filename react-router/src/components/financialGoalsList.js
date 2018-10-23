@@ -101,9 +101,7 @@ class FinancialGoalsList extends Component {
                 </ul>
             </div>
             <section>
-                <Link to="/newGoal" class="d-flex">
-                    <button class="btn btn-primary d-flex flex-row ml-auto" type="button" style={{ margin: '15px 17px', fontSize: '25px', padding: '0px 12px 4px 12px' }}>+</button>
-                </Link>
+                    <button class="btn btn-primary d-flex flex-row ml-auto" type="button" style={{ margin: '15px 17px', fontSize: '25px', padding: '0px 12px 4px 12px' }}><Link to="/newGoal" class="d-flex flex-row ml-auto" style={{color: 'white', textDecoration: 'none'}}>+ </Link></button>
             </section>
         </div>
     );

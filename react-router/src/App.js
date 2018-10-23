@@ -36,8 +36,6 @@ class App extends Component {
             <Route path="/landing" component={Landing} />
             <Route path="/newGoal" component={NewGoal} />
             <Route path="/financialGoals" component={FinancialGoals} />
-            
-            <Link to="/newGoal">New Goal</Link>
 
             <ThumbNail />
           </div>

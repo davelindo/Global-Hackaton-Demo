@@ -23,6 +23,14 @@ class GoalTile extends Component {
       return 50
     }
   }
+  
+  convertAccountBalance = (number) => {
+    
+    let noCommas = number.split(',').join('');
+    /* number now equips 3456789.12 */
+    return parseFloat(noCommas).toPrecision(4);
+  }
+
 
   render() {
     if (!this.props.balance){
@@ -59,7 +67,7 @@ class GoalTile extends Component {
                                       <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`Your Contribution - ${this.computeProgress('self')}%`}</h6>
                                   </td>
                                   <td style={{height: '30px'}}>
-                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.state.goal.own_contribution}`}</h6>
+                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.convertAccountBalance(this.props.balance.Data.Balance[0].Amount.Amount) * 0.40 }`}</h6>
                                   </td>
                               </tr>
                           </tbody>
@@ -78,7 +86,7 @@ class GoalTile extends Component {
                                       <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`Other Contributions - ${this.computeProgress('other')}%`}</h6>
                                   </td>
                                   <td style={{height: '30px'}}>
-                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.state.goal.other_contribution}`}</h6>
+                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.convertAccountBalance(this.props.balance.Data.Balance[0].Amount.Amount) * 0.10 }`}</h6>
                                   </td>
                               </tr>
                           </tbody>
@@ -97,7 +105,7 @@ class GoalTile extends Component {
                                       <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`Remaining - ${this.computeProgress()}%`}</h6>
                                   </td>
                                   <td style={{height: '30px'}}>
-                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`${this.state.goal.amount - this.state.goal.own_contribution - this.state.goal.other_contribution }`}</h6>
+                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.convertAccountBalance(this.props.balance.Data.Balance[0].Amount.Amount) * 0.50 }`}</h6>
                                   </td>
                               </tr>
                           </tbody>

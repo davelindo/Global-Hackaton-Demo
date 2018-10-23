@@ -25,16 +25,17 @@ class Goal extends Component {
   };
   
   render() {
-    if (this.props.balance === null){
+    if (this.props.balance === null || this.props.transactions === null){
       return null
-    } else {
-    return (
-      <Responsive>
-        < GoalTile balance={this.props.balance}/>
-        <ContributionsTile/>
-      </Responsive>
-    );
-  }
+    } 
+    else {
+      return (
+        <Responsive>
+          < GoalTile balance={this.props.balance}/>
+          <ContributionsTile transactions={this.props.transactions}/>
+        </Responsive>
+      );
+    }
   }
 
   }

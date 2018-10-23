@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: react-router
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: react-router
+        version: react-router
+    spec:
+      containers:
+      - name: frontend
+        image: gcr.io/davelindon-sandbox/microservice:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+

@@ -11,8 +11,9 @@ import { Redirect } from 'react-router'
 
 // Pages
 import Landing from './landing';
+import FinancialGoals from './financialGoals';
 import Friends from './friends';
-import Goals from './goals';
+import Goal from './goal';
 import NewGoal from './newGoal';
 import Account from './Account';
 
@@ -30,10 +31,11 @@ class App extends Component {
             <BackHeader history={history}/>
             <Route path="/" component={Landing} exact />
             <Route path="/accounts" component={Account} />
-            <Route path="/goals" component={Goals} />
+            <Route path="/goal" component={Goal} />
             <Route path="/friends" component={Friends} />
             <Route path="/landing" component={Landing} />
             <Route path="/newGoal" component={NewGoal} />
+            <Route path="/financialGoals" component={FinancialGoals} />
             
             <Link to="/newGoal">New Goal</Link>
 

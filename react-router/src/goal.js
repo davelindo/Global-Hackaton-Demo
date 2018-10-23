@@ -19,7 +19,7 @@ import {
   Visibility,
 } from 'semantic-ui-react'
 
-class Goals extends Component {
+class Goal extends Component {
   render() {
     return (
       <Responsive>
@@ -31,4 +31,4 @@ class Goals extends Component {
 
   }
 
-  export default Goals;
+  export default Goal;

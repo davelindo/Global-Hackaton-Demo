@@ -16,7 +16,7 @@ class ThumbNail extends Component {
                           </Link>
                         </td>
                         <td style={{width: '20%'}}>
-                          <Link to="/landing">
+                          <Link to="/financialGoals">
                             <i class="fa fa-user align-items-center align-content-center align-self-center" style={{padding: '0px 25%',fontSize: '42px',color: '#888888'}}></i>
                           </Link>
                         </td>
@@ -31,7 +31,7 @@ class ThumbNail extends Component {
                             <i class="fa fa-credit-card align-items-center align-content-center align-self-center" style={{padding: '0px 25%',fontSize: '42px',color: '#888888'}}></i>
                           </Link></td>
                         <td style={{width: '20%'}}>
-                          <Link to="/goals">
+                          <Link to="/goal">
                             <i class="fa fa-compass align-items-center align-content-center align-self-center" style={{padding: '0px 25%',fontSize: '42px',color: '#888888'}}></i>
                           </Link>
                         </td>

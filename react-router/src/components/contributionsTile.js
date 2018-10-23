@@ -26,12 +26,21 @@ class ContributionsTile extends Component {
       
   }
 
+  monthNumToName = (monthnum) => {
+    var months = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May',
+        'Jun', 'Jul', 'Aug', 'Sep',
+        'Oct', 'Nov', 'Dec'
+        ];
+    return months[monthnum - 1] || '';
+}
+
   mapContributors = (transactions) => {
     const listItems = transactions.map((transaction) =>
     <tr key={transaction.TransactionId}>
       <td>
-          <h4 className="text-muted">{transaction.ValueDateTime.split("-")[2].substring(0,2)}</h4>
-          <h6 className="text-muted">{transaction.ValueDateTime.split("-")[1]}</h6>
+        <h4 className="text-muted">{transaction.ValueDateTime.split("-")[2].substring(0,2)}</h4>
+        <h6 className="text-muted">{this.monthNumToName(transaction.ValueDateTime.split("-")[1])}</h6>
       </td>
       <td>
           <h4 className="text-muted">{transaction.MerchantDetails.MerchantName}</h4>

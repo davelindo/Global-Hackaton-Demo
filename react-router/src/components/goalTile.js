@@ -23,6 +23,17 @@ class GoalTile extends Component {
       return 50
     }
   }
+
+  
+
+monthNumToName = (monthnum) => {
+    var months = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May',
+        'Jun', 'Jul', 'Aug', 'Sep',
+        'Oct', 'Nov', 'Dec'
+        ];
+    return months[monthnum - 1] || '';
+}
   
   convertAccountBalance = (number) => {
     

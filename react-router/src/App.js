@@ -19,6 +19,49 @@ import Account from './Account';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { 
+      account:null,
+      balance:null,
+      transactions:null,
+      loggedIn: false
+   }
+  };
+
+  setStates = (account, balance,transactions) => {
+    this.setState({ account: account });
+    localStorage.setItem("account", JSON.stringify(account));
+    this.setState({ balance: balance });
+    localStorage.setItem("balance", JSON.stringify(balance));
+    this.setState({ transactions: transactions});
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  }
+
+  hydrateStateWithLocalStorage() {
+    // for all items in state
+    for (let key in this.state) {
+      // if the key exists in localStorage
+      if (localStorage.hasOwnProperty(key)) {
+        // get the key's value from localStorage
+        let value = localStorage.getItem(key);
+  
+        // parse the localStorage string and setState
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          // handle empty string
+          this.setState({ [key]: value });
+        }
+      }
+    }
+        }
+
+    async componentDidMount() {
+      await this.hydrateStateWithLocalStorage();
+    }
 
 
   
@@ -29,11 +72,11 @@ class App extends Component {
         <BrowserRouter history={history}>
           <div className="App">
             <BackHeader history={history}/>
-            <Route path="/" component={Landing} exact />
-            <Route path="/accounts" component={Account} />
-            <Route path="/goal" component={Goal} />
+            <Route path="/" render={(props) => <Landing {...props} account={this.state.account} /> }exact />
+            <Route path="/accounts" render={(props) => <Account {...props} setStates={this.setStates} /> }/>
+            <Route path="/goal" render={(props) => <Goal {...props} balance={this.state.balance} transactions={this.state.transactions} /> } />
             <Route path="/friends" component={Friends} />
-            <Route path="/landing" component={Landing} />
+            <Route path="/landing" render={(props) => <Landing {...props} account={this.state.account} /> } />
             <Route path="/newGoal" component={NewGoal} />
             <Route path="/financialGoals" component={FinancialGoals} />
 

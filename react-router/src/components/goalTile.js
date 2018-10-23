@@ -16,15 +16,39 @@ class GoalTile extends Component {
 
   computeProgress = (contributor) => {
     if (contributor === 'self'){
-      return 100 * this.state.goal.own_contribution/this.state.goal.amount
+      return 40
     } else if (contributor == 'other'){
-      return 100 * this.state.goal.other_contribution/this.state.goal.amount
+      return 10
     } else {
-      return 100 * (1 - this.state.goal.other_contribution/this.state.goal.amount - this.state.goal.own_contribution/this.state.goal.amount )
+      return 50
     }
   }
 
+  
+
+monthNumToName = (monthnum) => {
+    var months = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May',
+        'Jun', 'Jul', 'Aug', 'Sep',
+        'Oct', 'Nov', 'Dec'
+        ];
+    return months[monthnum - 1] || '';
+}
+  
+  convertAccountBalance = (number) => {
+    
+    let noCommas = number.split(',').join('');
+    /* number now equips 3456789.12 */
+    return parseFloat(noCommas).toPrecision(4);
+  }
+
+
   render() {
+    if (!this.props.balance){
+        return (<div><h1> Loading ...</h1></div>)
+    } else {
+        console.log("goal tile")
+        console.log(this.props.balance)
     return (
       <div className="card">
       <div className="card-body">
@@ -34,7 +58,7 @@ class GoalTile extends Component {
               <table className="table table-bordered">
                   <tbody>
                       <tr>
-                          <td style={{fontSize: '45px', padding: '0px'}}>{`$${this.state.goal.own_contribution + this.state.goal.other_contribution}`}</td>
+                          <td style={{fontSize: '45px', padding: '0px'}}>{`$${this.props.balance.Data.Balance[0].Amount.Amount}`}</td>
                           <td style={{fontSize: '40px',color: '#888888',padding: '0px'}}>27 days</td>
                       </tr>
                       <tr>
@@ -54,7 +78,7 @@ class GoalTile extends Component {
                                       <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`Your Contribution - ${this.computeProgress('self')}%`}</h6>
                                   </td>
                                   <td style={{height: '30px'}}>
-                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.state.goal.own_contribution}`}</h6>
+                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.convertAccountBalance(this.props.balance.Data.Balance[0].Amount.Amount) * 0.40 }`}</h6>
                                   </td>
                               </tr>
                           </tbody>
@@ -73,7 +97,7 @@ class GoalTile extends Component {
                                       <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`Other Contributions - ${this.computeProgress('other')}%`}</h6>
                                   </td>
                                   <td style={{height: '30px'}}>
-                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.state.goal.other_contribution}`}</h6>
+                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.convertAccountBalance(this.props.balance.Data.Balance[0].Amount.Amount) * 0.10 }`}</h6>
                                   </td>
                               </tr>
                           </tbody>
@@ -92,7 +116,7 @@ class GoalTile extends Component {
                                       <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`Remaining - ${this.computeProgress()}%`}</h6>
                                   </td>
                                   <td style={{height: '30px'}}>
-                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`${this.state.goal.amount - this.state.goal.own_contribution - this.state.goal.other_contribution }`}</h6>
+                                      <h6 className="text-muted mb-2" style={{margin: '0px',height: '15px'}}>{`$${this.convertAccountBalance(this.props.balance.Data.Balance[0].Amount.Amount) * 0.50 }`}</h6>
                                   </td>
                               </tr>
                           </tbody>
@@ -106,6 +130,7 @@ class GoalTile extends Component {
       </div>
   </div>
     );
+}
   }
 }
 

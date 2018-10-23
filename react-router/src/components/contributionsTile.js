@@ -26,18 +26,27 @@ class ContributionsTile extends Component {
       
   }
 
-  mapContributors = (contributions) => {
-    const listItems = contributions.map((contribution,index) =>
-    <tr key={index}>
+  monthNumToName = (monthnum) => {
+    var months = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May',
+        'Jun', 'Jul', 'Aug', 'Sep',
+        'Oct', 'Nov', 'Dec'
+        ];
+    return months[monthnum - 1] || '';
+}
+
+  mapContributors = (transactions) => {
+    const listItems = transactions.map((transaction) =>
+    <tr key={transaction.TransactionId}>
       <td>
-          <h4 className="text-muted">{contribution.date.split(" ")[1]}</h4>
-          <h6 className="text-muted">{contribution.date.split(" ")[0]}</h6>
+        <h4 className="text-muted">{transaction.ValueDateTime.split("-")[2].substring(0,2)}</h4>
+        <h6 className="text-muted">{this.monthNumToName(transaction.ValueDateTime.split("-")[1])}</h6>
       </td>
       <td>
-          <h4 className="text-muted">{contribution.contributor}</h4>
-          <h6 className="text-muted" style={{fontSize: '13px'}}>{contribution.message}</h6>
+          <h4 className="text-muted">{transaction.MerchantDetails.MerchantName}</h4>
+          <h6 className="text-muted" style={{fontSize: '13px'}}>Have Fun!!</h6>
       </td>
-      <td className="align-items-center align-content-center" style={{padding: '26px 0px',color: '#8f8f8f'}}>{`$${contribution.amount}`}</td>
+      <td className="align-items-center align-content-center" style={{padding: '26px 0px',color: '#8f8f8f'}}>{`$${transaction.Amount.Amount}`}</td>
     </tr>
   );
   return (
@@ -55,7 +64,7 @@ class ContributionsTile extends Component {
         <div className="card-body">
             <div className="table-responsive">
                 <table className="table">
-                   {this.mapContributors(this.state.contributions)}
+                   {this.mapContributors(this.props.transactions.Data.Transaction)}
                 </table>
             </div>
         </div>

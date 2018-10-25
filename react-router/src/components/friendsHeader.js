@@ -27,7 +27,7 @@ class FriendsHeader extends Component {
                     <tbody>
                         <tr>
                             <td style={{width: '50%'}}>
-                                <h5 className="text-muted">Friends</h5>
+                                <h5 className="text-muted">Friends (dave test)</h5>
                                 <h3 className="text-dark mb-2">Updates</h3>
                             </td>
                             <td style={{width: '50%', padding: '30px 0px 0px 0px'}}>

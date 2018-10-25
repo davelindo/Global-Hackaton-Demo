@@ -19,10 +19,28 @@ steps:
   dir: ./react-router/
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - 'set'
-  - 'image'
+  - 'apply'
+  - '-f'
+  - 'k8s/services.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=example'
+  dir: ./react-router/
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'apply'
+  - '-f'
+  - 'k8s/ingress.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=example'
+  dir: ./react-router/
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'rolling-update'
   - 'react-router'
-  - 'my-container=gcr.io/$PROJECT_ID/react-router:$REVISION_ID'
+  - 'react-router'
+  - '--image=gcr.io/$PROJECT_ID/react-router:$REVISION_ID'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=example'

@@ -11,7 +11,7 @@ spec:
         version: react-router
     spec:
       containers:
-      - name: frontend
+      - name: react-router
         image: gcr.io/davelindon-demo/react-router:latest
         imagePullPolicy: Always
         ports:

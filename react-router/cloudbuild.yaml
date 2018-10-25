@@ -12,7 +12,7 @@ steps:
   args:
   - 'apply'
   - '-f'
-  - 'k8s/deployments.yaml'
+  - 'k8s/replication-controller.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=example'

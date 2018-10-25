@@ -1,19 +1,19 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: v1
+kind: ReplicationController     
 metadata:
   name: react-router
+  labels:
+      app: react-router
 spec:
   replicas: 3
   template:
     metadata:
       labels:
         app: react-router
-        version: react-router
     spec:
       containers:
-      - name: frontend
+      - name: react-router
         image: gcr.io/davelindon-demo/react-router:latest
-        imagePullPolicy: Always
         ports:
-        - containerPort: 5000
-
+        - containerPort: 3000
+        imagePullPolicy: Always
